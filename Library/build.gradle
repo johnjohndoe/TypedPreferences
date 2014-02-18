@@ -1,0 +1,183 @@
+apply plugin: 'android-library'
+apply plugin: 'signing'
+apply plugin: 'android-maven'
+apply plugin: 'robolectric'
+
+
+sourceCompatibility = JavaVersion.VERSION_1_6
+targetCompatibility = JavaVersion.VERSION_1_6
+
+version = "1.0.0"
+group = "info.metadude.android"
+archivesBaseName = "typed-preferences"
+
+ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
+
+configurations {
+    archives {
+        extendsFrom configurations.default
+    }
+}
+
+signing {
+    required {
+        isReleaseVersion && gradle.taskGraph.hasTask("uploadArchives")
+    }
+    sign configurations.archives
+}
+
+// http://stackoverflow.com/a/21791497/356895
+task installArchives(type: Upload) {
+    description "Installs the artifacts to the local Maven repository."
+    repositories.mavenInstaller {
+        configuration = configurations.default
+        pom.groupId = "info.metadude.android"
+        pom.artifactId = "typed-preferences"
+        pom.version = "1.0.0"
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+
+            beforeDeployment {
+                MavenDeployment deployment -> signing.signPom(deployment)
+            }
+
+            repository(url: sonatypeRepo) {
+                authentication(
+                        userName: sonatypeUserName,
+                        password: sonatypePassword
+                )
+            }
+
+            pom {
+                project {
+                    name "Typed Preferences"
+                    packaging "aar", "jar"
+                    description "Preference wrappers for primitive types"
+                    inceptionYear "2014"
+                    url "https://github.com/johnjohndoe/TypedPreferences"
+
+                    scm {
+                        url "scm:git@github.com:johnjohndoe/TypedPreferences.git"
+                        connection "scm:git@github.com:johnjohndoe/TypedPreferences.git"
+                        developerConnection "scm:git@github.com:johnjohndoe/TypedPreferences.git"
+                    }
+
+                    licenses {
+                        license {
+                            name "The Apache Software License, Version 2.0"
+                            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+                            distribution "repo"
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id "johnjohndoe"
+                            name "Tobias Preuss"
+                            email "tobias.preuss@googlemail.com"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+android.libraryVariants.all { variant ->
+    def name = variant.buildType.name
+    if (name.equals(com.android.builder.BuilderConstants.DEBUG)) {
+        return; // Skip debug builds.
+    }
+    task("javadoc${variant.name.capitalize()}", type: Javadoc) {
+        description "Generates Javadoc for $variant.name."
+        source = variant.javaCompile.source
+        ext.androidJar = "${android.plugin.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+    }
+
+    task("bundleJavadoc${variant.name.capitalize()}", type: Jar) {
+        description "Bundles Javadoc into zip for $variant.name."
+        classifier = "javadoc"
+        from tasks["javadoc${variant.name.capitalize()}"]
+    }
+
+}
+
+
+task androidJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.allJava
+}
+
+task androidJavadocsJar(type: Jar) {
+    classifier = 'javadoc'
+    from androidJavadocs.destinationDir
+}
+
+task androidSourcesJar(type: Jar) {
+    classifier = 'sources'
+    from android.sourceSets.main.allSource
+}
+
+task addTest {
+    description "Registers the test folder in the .iml file so Java tooling works."
+    def src = ['src/test/java']
+    def file = file("Library.iml") // TODO Replace with file name look-up
+
+    doLast {
+        try {
+            def parsedXml = (new XmlParser()).parse(file)
+            def node = parsedXml.component[1].content[0]
+            src.each {
+                def path = 'file://$MODULE_DIR$/' + "${it}"
+                def set = node.find { it.@url == path }
+                if (set == null) {
+                    new Node(node, 'sourceFolder', ['url': 'file://$MODULE_DIR$/' + "${it}", 'isTestSource': "true"])
+                    def writer = new StringWriter()
+                    new XmlNodePrinter(new PrintWriter(writer)).print(parsedXml)
+                    file.text = writer.toString()
+                }
+            }
+        } catch (FileNotFoundException e) {
+            // nop, iml not found
+        }
+    }
+}
+
+// always do the addtest on prebuild
+gradle.projectsEvaluated {
+    preBuild.dependsOn(addTest)
+}
+
+artifacts {
+    archives androidSourcesJar
+    archives androidJavadocsJar
+}
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.0.1"
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0.0"
+    }
+    release {
+        runProguard false
+        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+
+    instrumentTestCompile 'org.robolectric:robolectric:2.+'
+    instrumentTestCompile 'junit:junit:4.+'
+}
+
+
