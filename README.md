@@ -50,6 +50,11 @@ Or if you use Maven you should be looking for this:
 For anything else, go to [Maven Centeral][maven-central] - or just build the library yourself.
 
 
+## Tests
+
+Run `gradle robolectric` to execute tests.
+
+
 
 ## Reference
 
