@@ -29,13 +29,26 @@ public interface TypedPreference<T extends Object> {
 
 ## How to get the thing running?
 
-Add the library as a dependency to your `build.gradle`:
+Add the library as a dependency to your `build.gradle` in case you use Gradle:
 
 ```groovy
 dependencies {
     compile 'info.metadude.android:typed-preferences:1.0.0'
 }
 ```
+Or if you use Maven you should be looking for this:
+
+```xml
+<dependency>
+    <groupId>info.metadude.android</groupId>
+    <artifactId>typed-preferences</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+For anything else, go to [Maven Centeral][maven-central] - or just build the library yourself.
+
+
 
 ## Reference
 
@@ -67,6 +80,7 @@ by [Jake Wharton][jake-wharton] in the [u2020 project][prefs-classes].
 
 
 
+[maven-central]: http://search.maven.org/#search
 [jake-wharton]: https://github.com/JakeWharton
 [prefs-classes]: https://github.com/JakeWharton/u2020/commit/094d2146497997cd1f6779a9b5c3c7ce239b5435#diff-b28e0ef294012bd151c143531648c477
 [tobias-preuss]: https://github.com/johnjohndoe
