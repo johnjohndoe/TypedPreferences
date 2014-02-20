@@ -1,5 +1,7 @@
 # Typed Preferences
 
+![Typed Preferences Icon](https://raw.github.com/johnjohndoe/TypedPreferences/master/gfx/typedpreferences-icon.png "Typed Preferences Icon")
+
 This library for Android provides classes which allow to store
 and retrieve settings from the preferences. There is an individual
 class for each native type:
