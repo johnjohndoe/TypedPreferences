@@ -6,12 +6,13 @@ This library for Android provides classes which allow to store
 and retrieve settings from the preferences. There is an individual
 class for each native type:
 
-* `BooleanPreference` for a `boolean` value
-* `DoublePreference` for a `double` value
-* `FloatPreference` for a `float` value
-* `IntPreference` for an `int` value
-* `LongPreference` for a `long` value
-* `StringPreference` for a `String` value
+
+* [`BooleanPreference`][boolean-pref] for a `boolean` value
+* [`DoublePreference`][double-pref] for a `double` value
+* [`FloatPreference`][float-pref] for a `float` value
+* [`IntPreference`][int-pref] for an `int` value
+* [`LongPreference`][long-pref] for a `long` value
+* [`StringPreference`][string-pref] for a `String` value
 
 Each class comes with two constructors - one of them allows to ommit
 the default value.
@@ -80,6 +81,12 @@ by [Jake Wharton][jake-wharton] in the [u2020 project][prefs-classes].
 
 
 
+[boolean-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/BooleanPreference.java
+[double-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/DoublePreference.java
+[float-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/FloatPreference.java
+[int-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/IntPreference.java
+[long-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/LongPreference.java
+[string-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/StringPreference.java
 [maven-central]: http://search.maven.org/#search
 [jake-wharton]: https://github.com/JakeWharton
 [prefs-classes]: https://github.com/JakeWharton/u2020/commit/094d2146497997cd1f6779a9b5c3c7ce239b5435#diff-b28e0ef294012bd151c143531648c477
