@@ -47,7 +47,7 @@ Or if you use Maven you should be looking for this:
 </dependency>
 ```
 
-For anything else, go to [Maven Centeral][maven-central] - or just build the library yourself.
+For anything else, go to [Maven Central][maven-central] - or just build the library yourself.
 
 
 ## Tests
