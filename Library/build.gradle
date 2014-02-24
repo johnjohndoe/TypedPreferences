@@ -13,12 +13,6 @@ archivesBaseName = "typed-preferences"
 
 ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
-configurations {
-    archives {
-        extendsFrom configurations.default
-    }
-}
-
 signing {
     required {
         isReleaseVersion && gradle.taskGraph.hasTask("uploadArchives")
