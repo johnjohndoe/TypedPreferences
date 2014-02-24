@@ -109,15 +109,18 @@ android.libraryVariants.all { variant ->
 
 
 task androidJavadocs(type: Javadoc) {
+    description "Generates JavaDoc files from all Java files."
     source = android.sourceSets.main.allJava
 }
 
 task androidJavadocsJar(type: Jar) {
+    description "Generates a JavaDoc archive (.jar) from the JavaDoc files."
     classifier = 'javadoc'
     from androidJavadocs.destinationDir
 }
 
 task androidSourcesJar(type: Jar) {
+    description "Generates a source files archive (.jar)."
     classifier = 'sources'
     from android.sourceSets.main.allSource
 }
