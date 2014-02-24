@@ -26,17 +26,6 @@ signing {
     sign configurations.archives
 }
 
-// http://stackoverflow.com/a/21791497/356895
-task installArchives(type: Upload) {
-    description "Installs the artifacts to the local Maven repository."
-    repositories.mavenInstaller {
-        configuration = configurations.default
-        pom.groupId = "info.metadude.android"
-        pom.artifactId = "typed-preferences"
-        pom.version = "1.0.0"
-    }
-}
-
 uploadArchives {
     repositories {
         mavenDeployer {
