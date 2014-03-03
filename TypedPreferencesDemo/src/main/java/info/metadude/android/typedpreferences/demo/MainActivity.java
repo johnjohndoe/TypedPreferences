@@ -9,23 +9,53 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
+    protected TextView mAndroidVersionTextView;
+    protected EditText mAndroidVersionEditText;
+    protected PreferenceHelper mPreferenceHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final TextView androidVersionTextView =
-                (TextView) findViewById(R.id.android_version_text_view);
-        final EditText androidVersionEditText =
-                (EditText) findViewById(R.id.android_version_edit_text);
+        mPreferenceHelper = getApp().getPreferenceHelper();
+        mAndroidVersionTextView = (TextView) findViewById(R.id.android_version_text_view);
+        mAndroidVersionEditText = (EditText) findViewById(R.id.android_version_edit_text);
 
         final Button submitButton = (Button) findViewById(R.id.submit_button);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
-                final String androidVersion = androidVersionEditText.getText().toString();
-                androidVersionTextView.setText(androidVersion);
+                final String androidVersion = mAndroidVersionEditText.getText().toString();
+                mAndroidVersionTextView.setText(androidVersion);
             }
         });
+    }
+
+    @Override protected void onResume() {
+        super.onResume();
+        restoreAndroidVersion();
+    }
+
+    @Override protected void onPause() {
+        storeAndroidVersion();
+        super.onPause();
+    }
+
+    protected void restoreAndroidVersion() {
+        if (!mPreferenceHelper.storesAndroidVersion()) {
+            return;
+        }
+        String androidVersion = mPreferenceHelper.restoreAndroidVersion();
+        mAndroidVersionTextView.setText(androidVersion);
+    }
+
+    protected void storeAndroidVersion() {
+        final String androidVersion = mAndroidVersionEditText.getText().toString();
+        mPreferenceHelper.storeAndroidVersion(androidVersion);
+    }
+
+    protected TypedPreferencesDemoApplication getApp() {
+        return (TypedPreferencesDemoApplication) getApplication();
     }
 
 }

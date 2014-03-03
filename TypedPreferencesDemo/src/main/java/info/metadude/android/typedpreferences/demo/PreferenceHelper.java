@@ -4,24 +4,31 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import info.metadude.android.typedpreferences.StringPreference;
+
 public class PreferenceHelper {
 
     protected final SharedPreferences mSharedPreferences;
+    protected static final String PREF_KEY_ANDROID_VERSION =
+            "info.metadude.android.typedpreferences.demo.ANDROID_VERSION";
 
     public PreferenceHelper(Context applicationContext) {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext);
     }
 
     public void storeAndroidVersion(final String androidVersion) {
-        throw new IllegalStateException("Not yet implemented");
+        StringPreference pref = new StringPreference(mSharedPreferences, PREF_KEY_ANDROID_VERSION);
+        pref.set(androidVersion);
     }
 
     public String restoreAndroidVersion() {
-        throw new IllegalStateException("Not yet implemented");
+        StringPreference pref = new StringPreference(mSharedPreferences, PREF_KEY_ANDROID_VERSION);
+        return pref.get();
     }
 
     public boolean storesAndroidVersion() {
-        throw new IllegalStateException("Not yet implemented");
+        StringPreference pref = new StringPreference(mSharedPreferences, PREF_KEY_ANDROID_VERSION);
+        return pref.isSet();
     }
 
 }

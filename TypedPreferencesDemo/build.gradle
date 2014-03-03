@@ -19,6 +19,7 @@ android {
 }
 
 dependencies {
+    compile 'info.metadude.android:typed-preferences:1.0.1'
     compile 'com.android.support:appcompat-v7:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
