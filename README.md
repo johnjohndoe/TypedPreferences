@@ -50,6 +50,12 @@ Or if you use Maven you should be looking for this:
 For anything else, go to [Maven Central][maven-central] - or just build the library yourself.
 
 
+## Demo project
+
+Check out the **demo project** `TypedPreferencesDemo` which shows how to use the library.
+
+
+
 ## Tests
 
 Run `gradle robolectric` to execute tests.
