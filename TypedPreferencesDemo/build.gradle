@@ -8,7 +8,7 @@ android {
         minSdkVersion 8
         targetSdkVersion 19
         versionCode 1
-        versionName "1.0"
+        versionName "1.1.0"
     }
     buildTypes {
         release {
@@ -19,7 +19,7 @@ android {
 }
 
 dependencies {
-    compile 'info.metadude.android:typed-preferences:1.0.1'
+    compile 'info.metadude.android:typed-preferences:1.1.+'
     compile 'com.android.support:appcompat-v7:+'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
