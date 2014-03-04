@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 /**
  * A wrapper class for a String preference.
  */
-public class StringPreference implements TypedPreference<String> {
+public class StringPreference {
 
     protected final SharedPreferences mPreferences;
     protected final String mKey;

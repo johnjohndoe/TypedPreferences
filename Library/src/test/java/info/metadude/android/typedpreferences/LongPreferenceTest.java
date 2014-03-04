@@ -10,68 +10,77 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
-public class LongPreferenceTest extends AbstractPreferenceTest {
+public class LongPreferenceTest {
 
+    protected static final String PREFERENCES_KEY =
+            "info.metadude.android.typedpreferences.TEST_KEY_LONG";
+    protected LongPreference mPreference;
     protected final long mTestValue = 23L;
     protected final long mDefaultValue = 42L;
 
-    @Before @Override
+    @Before
     public void beforeEach() {
         final SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(Robolectric.application);
         mPreference = new LongPreference(sharedPreferences, PREFERENCES_KEY, mDefaultValue);
     }
 
-    @Test @Override
+    @Test
     public void expect_Preference_To_BeInitialized() throws Exception {
         assertNotNull(mPreference);
     }
 
-    @Test @Override
+    @Test
     public void expect_Preference_To_EqualDefaultValue() throws Exception {
         final SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(Robolectric.application);
         LongPreference preference = new LongPreference(sharedPreferences, PREFERENCES_KEY);
-        assertEquals((long) preference.get(), LongPreference.DEFAULT_VALUE_VALUE);
+        assertEquals(preference.get(), LongPreference.DEFAULT_VALUE_VALUE);
     }
 
-    @Test @Override
+    @Test
+    public void expect_Preference_NotTo_BeSet() throws Exception {
+        assertFalse(mPreference.isSet());
+    }
+
+    @Test
     public void expect_Preference_To_BeSet() throws Exception {
-        ((LongPreference) mPreference).set(mTestValue);
+        mPreference.set(mTestValue);
         assertTrue(mPreference.isSet());
     }
 
-    @Test @Override
+    @Test
     public void expect_Preference_To_EqualDefaultValue_BeforeBeingSet() throws Exception {
-        final long value = (Long) mPreference.get();
+        final long value = mPreference.get();
         assertEquals(value, mDefaultValue);
         assertNotEquals(value, mTestValue);
     }
 
-    @Test @Override
+    @Test
     public void expect_Preference_To_EqualValue() throws Exception {
-        ((LongPreference) mPreference).set(mTestValue);
-        final long value = (Long) mPreference.get();
+        mPreference.set(mTestValue);
+        final long value = mPreference.get();
         assertEquals(value, mTestValue);
     }
 
-    @Test @Override
+    @Test
     public void expect_Preference_NotTo_EqualValue() throws Exception {
-        ((LongPreference) mPreference).set(77L);
-        final long value = (Long) mPreference.get();
+        mPreference.set(77L);
+        final long value = mPreference.get();
         assertNotEquals(value, mTestValue);
     }
 
-    @Test @Override
+    @Test
     public void expect_Preference_To_BeUnset() throws Exception {
-        ((LongPreference) mPreference).set(mTestValue);
+        mPreference.set(mTestValue);
         mPreference.delete();
-        final long value = (Long) mPreference.get();
+        final long value = mPreference.get();
         assertNotEquals(value, mTestValue);
     }
 

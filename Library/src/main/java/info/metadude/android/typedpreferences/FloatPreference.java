@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 /**
  * A wrapper class for a float preference.
  */
-public class FloatPreference implements TypedPreference<Float> {
+public class FloatPreference {
 
     protected final SharedPreferences mPreferences;
     protected final String mKey;
@@ -34,7 +34,7 @@ public class FloatPreference implements TypedPreference<Float> {
      * Returns the stored {@code float} value if it exists
      * or the default value.
      */
-    public Float get() {
+    public float get() {
         return mPreferences.getFloat(mKey, mDefaultValue);
     }
 
@@ -49,7 +49,7 @@ public class FloatPreference implements TypedPreference<Float> {
     /**
      * Stores the given {@code float} value.
      */
-    public void set(Float value) {
+    public void set(float value) {
         mPreferences.edit().putFloat(mKey, value).commit();
     }
 

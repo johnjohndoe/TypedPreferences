@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 /**
  * A wrapper class for a long preference.
  */
-public class LongPreference implements TypedPreference<Long> {
+public class LongPreference {
 
     protected final SharedPreferences mPreferences;
     protected final String mKey;
@@ -34,7 +34,7 @@ public class LongPreference implements TypedPreference<Long> {
      * Returns the stored {@code long} value if it exists
      * or the default value.
      */
-    public Long get() {
+    public long get() {
         return mPreferences.getLong(mKey, mDefaultValue);
     }
 
@@ -49,7 +49,7 @@ public class LongPreference implements TypedPreference<Long> {
     /**
      * Stores the given {@code long} value.
      */
-    public void set(Long value) {
+    public void set(long value) {
         mPreferences.edit().putLong(mKey, value).commit();
     }
 
