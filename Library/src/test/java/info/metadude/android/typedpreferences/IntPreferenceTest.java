@@ -23,6 +23,7 @@ public class IntPreferenceTest {
     protected IntPreference mPreference;
     protected final int mTestValue = 42;
     protected final int mDefaultValue = 23;
+    protected final int mDelta = 0;
 
     @Before
     public void beforeEach() {
@@ -73,14 +74,14 @@ public class IntPreferenceTest {
     @Test
     public void expect_Preference_NotTo_EqualValue() throws Exception {
         mPreference.set(55);
-        assertNotEquals(mPreference.get(), mTestValue);
+        assertNotEquals(mPreference.get(), mTestValue, mDelta);
     }
 
     @Test
     public void expect_Preference_To_BeUnset() throws Exception {
         mPreference.set(mTestValue);
         mPreference.delete();
-        assertNotEquals(mPreference.get(), mTestValue);
+        assertNotEquals(mPreference.get(), mTestValue, mDelta);
     }
 
 }

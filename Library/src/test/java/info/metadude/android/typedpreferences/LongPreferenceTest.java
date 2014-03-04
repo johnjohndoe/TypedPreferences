@@ -23,6 +23,7 @@ public class LongPreferenceTest {
     protected LongPreference mPreference;
     protected final long mTestValue = 23L;
     protected final long mDefaultValue = 42L;
+    protected final long mDelta = 0L;
 
     @Before
     public void beforeEach() {
@@ -41,7 +42,7 @@ public class LongPreferenceTest {
         final SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(Robolectric.application);
         LongPreference preference = new LongPreference(sharedPreferences, PREFERENCES_KEY);
-        assertEquals(preference.get(), LongPreference.DEFAULT_VALUE_VALUE);
+        assertEquals(preference.get(), LongPreference.DEFAULT_VALUE_VALUE, mDelta);
     }
 
     @Test
