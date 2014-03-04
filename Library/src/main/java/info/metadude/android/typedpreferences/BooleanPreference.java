@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 /**
  * A wrapper class for a boolean preference.
  */
-public class BooleanPreference implements TypedPreference<Boolean> {
+public class BooleanPreference {
 
     protected final SharedPreferences mPreferences;
     protected final String mKey;
@@ -34,7 +34,7 @@ public class BooleanPreference implements TypedPreference<Boolean> {
      * Returns the stored {@code boolean} value if it exists
      * or the default value.
      */
-    public Boolean get() {
+    public boolean get() {
         return mPreferences.getBoolean(mKey, mDefaultValue);
     }
 
@@ -49,7 +49,7 @@ public class BooleanPreference implements TypedPreference<Boolean> {
     /**
      * Stores the given {@code boolean} value.
      */
-    public void set(Boolean value) {
+    public void set(boolean value) {
         mPreferences.edit().putBoolean(mKey, value).commit();
     }
 

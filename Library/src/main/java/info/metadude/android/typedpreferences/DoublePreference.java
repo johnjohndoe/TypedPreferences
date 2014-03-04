@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 /**
  * A wrapper class to store and restore a double value in preferences.
  */
-public class DoublePreference implements TypedPreference<Double> {
+public class DoublePreference {
 
     protected LongPreference mLongPreference;
     public static final double DEFAULT_VALUE_VALUE = 0d;
@@ -30,7 +30,7 @@ public class DoublePreference implements TypedPreference<Double> {
      * Returns the stored {@code double} value if it exists
      * or the default value.
      */
-    public Double get() {
+    public double get() {
         return Double.longBitsToDouble(mLongPreference.get());
     }
 
@@ -45,7 +45,7 @@ public class DoublePreference implements TypedPreference<Double> {
     /**
      * Stores the given {@code double} value.
      */
-    public void set(Double value) {
+    public void set(double value) {
         mLongPreference.set(Double.doubleToLongBits(value));
     }
 

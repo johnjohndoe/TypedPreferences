@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 /**
  * A wrapper class for a int preference.
  */
-public class IntPreference implements TypedPreference<Integer> {
+public class IntPreference {
 
     protected final SharedPreferences mPreferences;
     protected final String mKey;
@@ -34,7 +34,7 @@ public class IntPreference implements TypedPreference<Integer> {
      * Returns the stored {@code int} value if it exists
      * or the default value.
      */
-    public Integer get() {
+    public int get() {
         return mPreferences.getInt(mKey, mDefaultValue);
     }
 
@@ -49,7 +49,7 @@ public class IntPreference implements TypedPreference<Integer> {
     /**
      * Stores the given {@code int} value.
      */
-    public void set(final Integer value) {
+    public void set(final int value) {
         mPreferences.edit().putInt(mKey, value).commit();
     }
 
