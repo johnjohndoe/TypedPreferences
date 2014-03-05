@@ -17,14 +17,15 @@ class for each native type:
 Each class comes with two constructors - one of them allows to ommit
 the default value.
 
-A common interface defines the following methods:
+All classes declare the same methods `get()`, `isSet()`, `set()` and `delete()`.
+Here are the method signatures as definied in the `StringPreference` class.
 
 ```java
-public interface TypedPreference<T extends Object> {
-    public T get();
-    public boolean isSet();
-    public void set(T value);
-    public void delete();
+public class StringPreference {
+    public String get() { ... }
+    public boolean isSet() { ... }
+    public void set(String value) { ... }
+    public void delete() { ... }
 }
 ```
 
