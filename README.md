@@ -1,3 +1,5 @@
+[![Build Status](https://johnjohndoe.ci.cloudbees.com/job/TypedPreferences/badge/icon)](https://johnjohndoe.ci.cloudbees.com/job/TypedPreferences/)
+
 # Typed Preferences
 
 ![Typed Preferences Icon](https://raw.github.com/johnjohndoe/TypedPreferences/master/gfx/typedpreferences-icon.png "Typed Preferences Icon")
