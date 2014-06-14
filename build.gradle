@@ -8,7 +8,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.8.+'
+        classpath 'com.android.tools.build:gradle:0.9.+'
         classpath 'com.github.dcendents:android-maven-plugin:1.0'
         classpath 'com.novoda.gradle:robolectric-plugin:0.0.1-SNAPSHOT'
     }

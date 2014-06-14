@@ -153,17 +153,18 @@ android {
         versionCode 4
         versionName "1.1.0"
     }
-    release {
-        runProguard false
-        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-
-    instrumentTestCompile 'org.robolectric:robolectric:2.+'
-    instrumentTestCompile 'junit:junit:4.+'
+    androidTestCompile 'org.robolectric:robolectric:2.+'
+    androidTestCompile 'junit:junit:4.+'
 }
 
 
