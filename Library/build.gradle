@@ -72,13 +72,13 @@ uploadArchives {
 
 android.libraryVariants.all { variant ->
     def name = variant.buildType.name
-    if (name.equals(com.android.builder.BuilderConstants.DEBUG)) {
+    if (name.equals(com.android.builder.core.BuilderConstants.DEBUG)) {
         return; // Skip debug builds.
     }
     task("javadoc${variant.name.capitalize()}", type: Javadoc) {
         description "Generates Javadoc for $variant.name."
         source = variant.javaCompile.source
-        ext.androidJar = "${android.plugin.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
         classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
     }
 
@@ -93,7 +93,7 @@ android.libraryVariants.all { variant ->
 
 task androidJavadocs(type: Javadoc) {
     description "Generates JavaDoc files from all Java files."
-    source = android.sourceSets.main.allJava
+    source = android.sourceSets.main.java.srcDirs
 }
 
 task androidJavadocsJar(type: Jar) {
@@ -105,7 +105,7 @@ task androidJavadocsJar(type: Jar) {
 task androidSourcesJar(type: Jar) {
     description "Generates a source files archive (.jar)."
     classifier = 'sources'
-    from android.sourceSets.main.allSource
+    from android.sourceSets.main.java.srcDirs
 }
 
 task addTest {
