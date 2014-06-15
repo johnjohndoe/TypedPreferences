@@ -23,3 +23,8 @@ allprojects {
         }
     }
 }
+
+task wrapper(type: Wrapper) {
+    description "Generates the Gradle wrapper."
+    gradleVersion = '1.12'
+}
