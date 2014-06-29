@@ -47,17 +47,17 @@ public class BooleanPreference {
     }
 
     /**
-     * Stores the given {@code boolean} value.
+     * Stores the given {@code boolean} value asynchronously.
      */
     public void set(boolean value) {
-        mPreferences.edit().putBoolean(mKey, value).commit();
+        mPreferences.edit().putBoolean(mKey, value).apply();
     }
 
     /**
-     * Removes this preference setting.
+     * Removes this preference setting asynchronously.
      */
     public void delete() {
-        mPreferences.edit().remove(mKey).commit();
+        mPreferences.edit().remove(mKey).apply();
     }
 
 }

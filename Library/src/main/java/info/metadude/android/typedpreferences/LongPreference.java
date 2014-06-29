@@ -47,17 +47,17 @@ public class LongPreference {
     }
 
     /**
-     * Stores the given {@code long} value.
+     * Stores the given {@code long} value asynchronously.
      */
     public void set(long value) {
-        mPreferences.edit().putLong(mKey, value).commit();
+        mPreferences.edit().putLong(mKey, value).apply();
     }
 
     /**
-     * Removes this preference setting.
+     * Removes this preference setting asynchronously.
      */
     public void delete() {
-        mPreferences.edit().remove(mKey).commit();
+        mPreferences.edit().remove(mKey).apply();
     }
 
 }

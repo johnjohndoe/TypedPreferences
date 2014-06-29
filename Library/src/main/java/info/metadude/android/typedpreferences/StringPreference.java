@@ -47,17 +47,17 @@ public class StringPreference {
     }
 
     /**
-     * Stores the given {@code String} value.
+     * Stores the given {@code String} value asynchronously.
      */
     public void set(final String value) {
-        mPreferences.edit().putString(mKey, value).commit();
+        mPreferences.edit().putString(mKey, value).apply();
     }
 
     /**
-     * Removes this preference setting.
+     * Removes this preference setting asynchronously.
      */
     public void delete() {
-        mPreferences.edit().remove(mKey).commit();
+        mPreferences.edit().remove(mKey).apply();
     }
 
 }
