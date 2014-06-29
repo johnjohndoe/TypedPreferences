@@ -47,17 +47,17 @@ public class IntPreference {
     }
 
     /**
-     * Stores the given {@code int} value.
+     * Stores the given {@code int} value asynchronously.
      */
     public void set(final int value) {
-        mPreferences.edit().putInt(mKey, value).commit();
+        mPreferences.edit().putInt(mKey, value).apply();
     }
 
     /**
-     * Removes this preference setting.
+     * Removes this preference setting asynchronously.
      */
     public void delete() {
-        mPreferences.edit().remove(mKey).commit();
+        mPreferences.edit().remove(mKey).apply();
     }
 
 }
