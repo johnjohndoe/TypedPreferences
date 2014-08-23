@@ -1,4 +1,14 @@
-apply plugin: 'android-library'
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-plugin:1.0'
+        classpath 'org.robolectric:robolectric-gradle-plugin:0.12.0'
+    }
+}
+
+apply plugin: 'com.android.library'
 apply plugin: 'signing'
 apply plugin: 'android-maven'
 apply plugin: 'robolectric'
@@ -90,7 +100,6 @@ android.libraryVariants.all { variant ->
 
 }
 
-
 task androidJavadocs(type: Javadoc) {
     description "Generates JavaDoc files from all Java files."
     source = android.sourceSets.main.java.srcDirs
@@ -108,48 +117,18 @@ task androidSourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
 }
 
-task addTest {
-    description "Registers the test folder in the .iml file so Java tooling works."
-    def src = ['src/test/java']
-    def file = file("Library.iml") // TODO Replace with file name look-up
-
-    doLast {
-        try {
-            def parsedXml = (new XmlParser()).parse(file)
-            def node = parsedXml.component[1].content[0]
-            src.each {
-                def path = 'file://$MODULE_DIR$/' + "${it}"
-                def set = node.find { it.@url == path }
-                if (set == null) {
-                    new Node(node, 'sourceFolder', ['url': 'file://$MODULE_DIR$/' + "${it}", 'isTestSource': "true"])
-                    def writer = new StringWriter()
-                    new XmlNodePrinter(new PrintWriter(writer)).print(parsedXml)
-                    file.text = writer.toString()
-                }
-            }
-        } catch (FileNotFoundException e) {
-            // nop, iml not found
-        }
-    }
-}
-
-// always do the addtest on prebuild
-gradle.projectsEvaluated {
-    preBuild.dependsOn(addTest)
-}
-
 artifacts {
     archives androidSourcesJar
     archives androidJavadocsJar
 }
 
 android {
-    compileSdkVersion 19
-    buildToolsVersion "19.1.0"
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 19
+        targetSdkVersion 20
         versionCode 4
         versionName "1.1.0"
     }
@@ -162,9 +141,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    androidTestCompile 'org.robolectric:robolectric:2.+'
-    androidTestCompile 'junit:junit:4.+'
+    androidTestCompile 'org.robolectric:robolectric:2.3'
+    androidTestCompile 'junit:junit:4.11'
 }
 
 

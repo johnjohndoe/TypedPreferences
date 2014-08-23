@@ -8,26 +8,30 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+@Config(emulateSdk = 18)
 @RunWith(RobolectricTestRunner.class)
-public class BooleanPreferenceTest {
+public class IntPreferenceTest {
 
     protected static final String PREFERENCES_KEY =
-            "info.metadude.android.typedpreferences.TEST_KEY_BOOLEAN";
-    protected BooleanPreference mPreference;
-    protected final boolean mTestValue = true;
-    protected final boolean mDefaultValue = false;
+            "info.metadude.android.typedpreferences.TEST_KEY_INT";
+    protected IntPreference mPreference;
+    protected final int mTestValue = 42;
+    protected final int mDefaultValue = 23;
+    protected final int mDelta = 0;
 
     @Before
     public void beforeEach() {
         final SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(Robolectric.application);
-        mPreference = new BooleanPreference(sharedPreferences, PREFERENCES_KEY, mDefaultValue);
+        mPreference = new IntPreference(sharedPreferences, PREFERENCES_KEY, mDefaultValue);
     }
 
     @Test
@@ -39,8 +43,9 @@ public class BooleanPreferenceTest {
     public void expect_Preference_To_EqualDefaultValue() throws Exception {
         final SharedPreferences sharedPreferences = PreferenceManager
                 .getDefaultSharedPreferences(Robolectric.application);
-        BooleanPreference preference = new BooleanPreference(sharedPreferences, PREFERENCES_KEY);
-        assertEquals(preference.get(), BooleanPreference.DEFAULT_VALUE_VALUE);
+        IntPreference preference = new IntPreference(sharedPreferences, PREFERENCES_KEY);
+        final int value = preference.get();
+        assertEquals(value, IntPreference.DEFAULT_VALUE_VALUE);
     }
 
     @Test
@@ -50,33 +55,35 @@ public class BooleanPreferenceTest {
 
     @Test
     public void expect_Preference_To_BeSet() throws Exception {
-        mPreference.set(false);
+        mPreference.set(mTestValue);
         assertTrue(mPreference.isSet());
     }
 
     @Test
     public void expect_Preference_To_EqualDefaultValue_BeforeBeingSet() throws Exception {
-        assertFalse(mPreference.get());
-        assertEquals(mPreference.get(), mDefaultValue);
+        final int value = mPreference.get();
+        assertEquals(value, mDefaultValue);
+        assertNotEquals(value, mTestValue);
     }
 
     @Test
     public void expect_Preference_To_EqualValue() throws Exception {
         mPreference.set(mTestValue);
-        assertTrue(mPreference.get());
+        final int value = mPreference.get();
+        assertEquals(value, mTestValue);
     }
 
     @Test
     public void expect_Preference_NotTo_EqualValue() throws Exception {
-        mPreference.set(false);
-        assertFalse(mPreference.get());
+        mPreference.set(55);
+        assertNotEquals(mPreference.get(), mTestValue, mDelta);
     }
 
     @Test
     public void expect_Preference_To_BeUnset() throws Exception {
         mPreference.set(mTestValue);
         mPreference.delete();
-        assertFalse(mPreference.get());
+        assertNotEquals(mPreference.get(), mTestValue, mDelta);
     }
 
 }
