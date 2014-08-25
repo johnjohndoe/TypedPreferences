@@ -3,22 +3,19 @@
 buildscript {
     repositories {
         mavenCentral()
-        maven {
-            url 'https://oss.sonatype.org/content/repositories/snapshots'
-        }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.8.+'
-        classpath 'com.github.dcendents:android-maven-plugin:1.0'
-        classpath 'com.novoda.gradle:robolectric-plugin:0.0.1-SNAPSHOT'
+        classpath 'com.android.tools.build:gradle:0.12.2'
     }
 }
 
 allprojects {
     repositories {
         mavenCentral()
-        maven {
-            url 'https://oss.sonatype.org/content/repositories/snapshots'
-        }
     }
+}
+
+task wrapper(type: Wrapper) {
+    description "Generates the Gradle wrapper."
+    gradleVersion = '1.12'
 }
