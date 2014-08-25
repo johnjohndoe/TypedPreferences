@@ -1,4 +1,4 @@
-[![Build Status](https://johnjohndoe.ci.cloudbees.com/buildStatus/icon?job=TypedPreferences)](https://johnjohndoe.ci.cloudbees.com/job/TypedPreferences/)
+[![Travis build status](https://travis-ci.org/johnjohndoe/TypedPreferences.svg)](https://travis-ci.org/johnjohndoe/TypedPreferences) [![Build Status](https://johnjohndoe.ci.cloudbees.com/buildStatus/icon?job=TypedPreferences)](https://johnjohndoe.ci.cloudbees.com/job/TypedPreferences/)
 
 # Typed Preferences
 
