@@ -1,0 +1,17 @@
+language: android
+
+android:
+  components:
+
+    # All the build system components should be at the latest version
+    - tools
+    - platform-tools
+    - build-tools-20.0.0
+    - android-20
+
+    # The libraries we can't get from Maven Central or similar
+    - extra-android-support
+    - extra-android-m2repository
+
+script:
+  - ./gradlew clean test  # run tests
