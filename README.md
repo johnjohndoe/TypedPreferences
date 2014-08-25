@@ -1,4 +1,4 @@
-[![Travis build status](https://travis-ci.org/johnjohndoe/TypedPreferences.svg)](https://travis-ci.org/johnjohndoe/TypedPreferences) [![Build Status](https://johnjohndoe.ci.cloudbees.com/buildStatus/icon?job=TypedPreferences)](https://johnjohndoe.ci.cloudbees.com/job/TypedPreferences/)
+[![Travis build status](https://travis-ci.org/johnjohndoe/TypedPreferences.svg)](https://travis-ci.org/johnjohndoe/TypedPreferences) [![Build Status](https://johnjohndoe.ci.cloudbees.com/buildStatus/icon?job=TypedPreferences)](https://johnjohndoe.ci.cloudbees.com/job/TypedPreferences/) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/info.metadude.android/typed-preferences/badge.svg)](https://maven-badges.herokuapp.com/maven-central/info.metadude.android/typed-preferences)
 
 # Typed Preferences
 
