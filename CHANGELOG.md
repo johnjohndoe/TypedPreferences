@@ -1,5 +1,18 @@
 # Typed Preferences changelog
 
+## [v.1.1.1](https://github.com/johnjohndoe/TypedPreferences/tree/v.1.1.1)
+
+* Published: 2014-08-26
+
+### Changes
+
+* Add .jar packaging.
+* Set `emulatedSdk` to `18` for Robolectric.
+* Set fixed version for JUnit to `4.11`.
+* Set fixed version for Robolectric to `2.3`.
+* Increase `targetSdkVersion` to `20`.
+
+
 ## [v.1.1.0](https://github.com/johnjohndoe/TypedPreferences/tree/v.1.1.0)
 
 * Published: 2014-03-04

@@ -17,7 +17,7 @@ apply plugin: 'robolectric'
 sourceCompatibility = JavaVersion.VERSION_1_6
 targetCompatibility = JavaVersion.VERSION_1_6
 
-version = "1.1.0"
+version = "1.1.1"
 group = "info.metadude.android"
 archivesBaseName = "typed-preferences"
 
@@ -136,8 +136,8 @@ android {
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 20
-        versionCode 4
-        versionName "1.1.0"
+        versionCode 5
+        versionName "1.1.1"
     }
     buildTypes {
         release {
