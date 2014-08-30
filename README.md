@@ -61,7 +61,7 @@ Check out the **demo project** `TypedPreferencesDemo` which shows how to use the
 
 ## Tests
 
-Run `gradle robolectric` to execute tests.
+Run `./gradlew clean test` to execute the tests.
 
 
 
