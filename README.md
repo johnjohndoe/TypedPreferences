@@ -37,7 +37,7 @@ Add the library as a dependency to your `build.gradle` in case you use Gradle:
 
 ```groovy
 dependencies {
-    compile 'info.metadude.android:typed-preferences:1.1.1'
+    compile 'info.metadude.android:typed-preferences:2.0.0'
 }
 ```
 Or if you use Maven you should be looking for this:
@@ -46,11 +46,18 @@ Or if you use Maven you should be looking for this:
 <dependency>
     <groupId>info.metadude.android</groupId>
     <artifactId>typed-preferences</artifactId>
-    <version>1.1.1</version>
+    <version>2.0.0</version>
 </dependency>
 ```
 
 For anything else, go to [Maven Central][maven-central] - or just build the library yourself.
+
+
+## Minimum SDK version / API level
+
+The library is available in two different versions. If you need to support *API level 8* in your project you must include the latest *1.x.x* version. This library version persists the settings synchronously using the `commit` method of the `SharedPreferences.Editor`. If the minimum SDK version you need to support is *API level 9* you can choose the latest *2.x.x* version which relies on the `apply` method of the `SharedPreferences.Editor`. Thereby settings are persisted asynchronously.
+
+For further information please stick to documentation of the `SharedPreferences.Editor` interface.
 
 
 ## Demo project

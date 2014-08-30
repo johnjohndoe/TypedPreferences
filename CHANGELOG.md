@@ -1,5 +1,14 @@
 # Typed Preferences changelog
 
+## [v.2.0.0](https://github.com/johnjohndoe/TypedPreferences/tree/v.2.0.0)
+
+* Published: 2014-08-30
+
+### Changes
+
+* Preferences are written out to persistent storage asynchronously. This change forces minimum SDK version 9. Use an v.1.x.x version of the library if you need to support API level 8.
+
+
 ## [v.1.1.1](https://github.com/johnjohndoe/TypedPreferences/tree/v.1.1.1)
 
 * Published: 2014-08-26

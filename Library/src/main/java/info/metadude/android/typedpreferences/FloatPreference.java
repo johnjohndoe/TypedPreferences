@@ -47,17 +47,17 @@ public class FloatPreference {
     }
 
     /**
-     * Stores the given {@code float} value.
+     * Stores the given {@code float} value asynchronously.
      */
     public void set(float value) {
-        mPreferences.edit().putFloat(mKey, value).commit();
+        mPreferences.edit().putFloat(mKey, value).apply();
     }
 
     /**
-     * Removes this preference setting.
+     * Removes this preference setting asynchronously.
      */
     public void delete() {
-        mPreferences.edit().remove(mKey).commit();
+        mPreferences.edit().remove(mKey).apply();
     }
 
 }

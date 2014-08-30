@@ -43,14 +43,14 @@ public class DoublePreference {
     }
 
     /**
-     * Stores the given {@code double} value.
+     * Stores the given {@code double} value asynchronously.
      */
     public void set(double value) {
         mLongPreference.set(Double.doubleToLongBits(value));
     }
 
     /**
-     * Removes this preference setting.
+     * Removes this preference setting asynchronously.
      */
     public void delete() {
         mLongPreference.delete();
