@@ -131,7 +131,7 @@ artifacts {
 
 android {
     compileSdkVersion 20
-    buildToolsVersion "20.0.0"
+    buildToolsVersion "21.1.0"
 
     defaultConfig {
         minSdkVersion 9
