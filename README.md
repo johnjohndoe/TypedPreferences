@@ -1,4 +1,4 @@
-[![Travis build status](https://travis-ci.org/johnjohndoe/TypedPreferences.svg)](https://travis-ci.org/johnjohndoe/TypedPreferences) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/info.metadude.android/typed-preferences/badge.svg)](https://maven-badges.herokuapp.com/maven-central/info.metadude.android/typed-preferences) [![Apache License](http://img.shields.io/badge/license-Apache%20License%202.0-lightgrey.svg)](http://choosealicense.com/licenses/apache-2.0/)
+[![Travis build status](https://travis-ci.org/johnjohndoe/TypedPreferences.svg)](https://travis-ci.org/johnjohndoe/TypedPreferences) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/info.metadude.android/typed-preferences/badge.svg)](https://maven-badges.herokuapp.com/maven-central/info.metadude.android/typed-preferences) [![Apache License](http://img.shields.io/badge/license-Apache%20License%202.0-lightgrey.svg)](http://choosealicense.com/licenses/apache-2.0/) [![VersionEye](https://www.versioneye.com/user/projects/5462379dce5463a51700006a/badge.svg)](https://www.versioneye.com)
 
 # Typed Preferences
 
