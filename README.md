@@ -74,6 +74,12 @@ Check out the **demo project** `TypedPreferencesDemo` which shows how to use the
 Run `./gradlew clean test` to execute the tests.
 
 
+## Feedback
+
+If you use this library and you are happy with it please send a tweet to [@tbsprs][tbsprs] and feel free to announce your app. I will be happy to list it here.
+
+In case you do not like the library please do not hesitate to [open an issue][issues] and let me know what can be improved.
+
 
 ## Reference
 
@@ -122,3 +128,5 @@ by [Jake Wharton][jake-wharton] in the [u2020 project][prefs-classes].
 [tobias-preuss]: https://github.com/johnjohndoe
 [marius-volkhart]: https://github.com/MariusVolkhart
 [typedpreferences-wiki]: https://github.com/johnjohndoe/TypedPreferences/wiki
+[tbsprs]: http://twitter.com/tbsprs
+[issues]: https://github.com/johnjohndoe/TypedPreferences/issues
