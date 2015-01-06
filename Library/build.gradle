@@ -149,7 +149,7 @@ android {
 
 dependencies {
     androidTestCompile 'org.robolectric:robolectric:2.4'
-    androidTestCompile 'junit:junit:4.11'
+    androidTestCompile 'junit:junit:4.12'
 }
 
 
