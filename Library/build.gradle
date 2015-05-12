@@ -4,7 +4,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.github.dcendents:android-maven-plugin:1.2'
-        classpath 'org.robolectric:robolectric-gradle-plugin:0.12.0'
+        classpath 'org.robolectric:robolectric-gradle-plugin:0.14.1'
     }
 }
 
