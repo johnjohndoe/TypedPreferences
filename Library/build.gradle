@@ -4,14 +4,14 @@ buildscript {
     }
     dependencies {
         classpath 'com.github.dcendents:android-maven-plugin:1.2'
-        classpath 'org.robolectric:robolectric-gradle-plugin:0.14.1'
+        classpath 'org.robolectric:robolectric-gradle-plugin:1.0.1'
     }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'signing'
 apply plugin: 'android-maven'
-apply plugin: 'robolectric'
+apply plugin: 'org.robolectric'
 
 
 sourceCompatibility = JavaVersion.VERSION_1_6
