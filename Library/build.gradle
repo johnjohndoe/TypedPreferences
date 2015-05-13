@@ -10,7 +10,7 @@ buildscript {
 
 apply plugin: 'com.android.library'
 apply plugin: 'signing'
-apply plugin: 'android-maven'
+apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'org.robolectric'
 
 
