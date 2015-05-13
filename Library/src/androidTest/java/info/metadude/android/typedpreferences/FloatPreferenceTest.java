@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 public class FloatPreferenceTest {
 
     protected static final String PREFERENCES_KEY =
-            "info.metadude.android.typedpreferences.TEST_KEY_FLOAT";
+            BuildConfig.APPLICATION_ID + ".TEST_KEY_FLOAT";
     protected FloatPreference mPreference;
     protected final float mTestValue = 23.23f;
     protected final float mDefaultValue = 42.42f;

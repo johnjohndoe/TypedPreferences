@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 public class DoublePreferenceTest {
 
     protected static final String PREFERENCES_KEY =
-            "info.metadude.android.typedpreferences.TEST_KEY_DOUBLE";
+            BuildConfig.APPLICATION_ID + ".TEST_KEY_DOUBLE";
     protected DoublePreference mPreference;
     protected final double mTestValue = 23.23d;
     protected final double mDefaultValue = 42.42f;

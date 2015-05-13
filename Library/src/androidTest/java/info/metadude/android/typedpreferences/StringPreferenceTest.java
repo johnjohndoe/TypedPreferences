@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 public class StringPreferenceTest {
 
     protected static final String PREFERENCES_KEY =
-            "info.metadude.android.typedpreferences.TEST_KEY_STRING";
+            BuildConfig.APPLICATION_ID + ".TEST_KEY_STRING";
     protected StringPreference mPreference;
     protected final String mTestValue = "Hello World";
     protected final String mDefaultValue = "Empty";

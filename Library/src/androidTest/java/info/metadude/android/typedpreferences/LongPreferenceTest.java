@@ -21,7 +21,7 @@ import static org.junit.Assert.assertTrue;
 public class LongPreferenceTest {
 
     protected static final String PREFERENCES_KEY =
-            "info.metadude.android.typedpreferences.TEST_KEY_LONG";
+            BuildConfig.APPLICATION_ID + ".TEST_KEY_LONG";
     protected LongPreference mPreference;
     protected final long mTestValue = 23L;
     protected final long mDefaultValue = 42L;

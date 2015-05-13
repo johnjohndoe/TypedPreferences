@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
 public class BooleanPreferenceTest {
 
     protected static final String PREFERENCES_KEY =
-            "info.metadude.android.typedpreferences.TEST_KEY_BOOLEAN";
+            BuildConfig.APPLICATION_ID + ".TEST_KEY_BOOLEAN";
     protected BooleanPreference mPreference;
     protected final boolean mTestValue = true;
     protected final boolean mDefaultValue = false;
