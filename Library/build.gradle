@@ -81,23 +81,25 @@ uploadArchives {
 }
 
 android.libraryVariants.all { variant ->
-    def name = variant.buildType.name
-    if (name.equals(com.android.builder.core.BuilderConstants.DEBUG)) {
-        return; // Skip debug builds.
-    }
-    task("javadoc${variant.name.capitalize()}", type: Javadoc) {
-        description "Generates Javadoc for $variant.name."
-        source = variant.javaCompile.source
-        ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
-        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
-    }
+    variant.outputs.each { output ->
+        File outputFile = output.outputFile
+        String name = outputFile.name
+        if (name.equals(com.android.builder.core.BuilderConstants.DEBUG)) {
+            return; // Skip debug builds.
+        }
+        task("javadoc${outputFile.name.capitalize()}", type: Javadoc) {
+            description "Generates Javadoc for $outputFile.name."
+            source = variant.javaCompile.source
+            ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
+            classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar)
+        }
 
-    task("bundleJavadoc${variant.name.capitalize()}", type: Jar) {
-        description "Bundles Javadoc into zip for $variant.name."
-        classifier = "javadoc"
-        from tasks["javadoc${variant.name.capitalize()}"]
+        task("bundleJavadoc${outputFile.name.capitalize()}", type: Jar) {
+            description "Bundles Javadoc into zip for $variant.name."
+            classifier = "javadoc"
+            from tasks["javadoc${outputFile.name.capitalize()}"]
+        }
     }
-
 }
 
 task jar(type: Jar) {
