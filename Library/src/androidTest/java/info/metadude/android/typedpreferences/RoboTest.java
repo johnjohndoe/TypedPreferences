@@ -7,7 +7,7 @@ import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.*;
 
-@Config(emulateSdk = 18)
+@Config(emulateSdk = BuildConfig.ROBOLECTRIC_EMULATE_SDK_VERSION)
 @RunWith(RobolectricTestRunner.class)
 public class RoboTest {
 

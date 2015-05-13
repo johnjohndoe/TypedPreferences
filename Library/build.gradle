@@ -138,6 +138,7 @@ android {
         targetSdkVersion 22
         versionCode 6
         versionName "2.0.0"
+        buildConfigField "int", "ROBOLECTRIC_EMULATE_SDK_VERSION", "18"
     }
     buildTypes {
         release {

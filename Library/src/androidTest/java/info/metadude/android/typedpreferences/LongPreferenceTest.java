@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-@Config(emulateSdk = 18)
+@Config(emulateSdk = BuildConfig.ROBOLECTRIC_EMULATE_SDK_VERSION)
 @RunWith(RobolectricTestRunner.class)
 public class LongPreferenceTest {
 
