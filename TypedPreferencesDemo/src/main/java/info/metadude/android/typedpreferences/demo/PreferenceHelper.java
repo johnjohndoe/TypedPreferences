@@ -13,23 +13,24 @@ public class PreferenceHelper {
     protected static final String PREF_KEY_ANDROID_VERSION =
             BuildConfig.APPLICATION_ID + ".ANDROID_VERSION";
 
+    protected final StringPreference mAndroidVersionPreference;
+
     public PreferenceHelper(Context applicationContext) {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext);
+        mAndroidVersionPreference = new StringPreference(
+                mSharedPreferences, PREF_KEY_ANDROID_VERSION);
     }
 
     public void storeAndroidVersion(final String androidVersion) {
-        StringPreference pref = new StringPreference(mSharedPreferences, PREF_KEY_ANDROID_VERSION);
-        pref.set(androidVersion);
+        mAndroidVersionPreference.set(androidVersion);
     }
 
     public String restoreAndroidVersion() {
-        StringPreference pref = new StringPreference(mSharedPreferences, PREF_KEY_ANDROID_VERSION);
-        return pref.get();
+        return mAndroidVersionPreference.get();
     }
 
     public boolean storesAndroidVersion() {
-        StringPreference pref = new StringPreference(mSharedPreferences, PREF_KEY_ANDROID_VERSION);
-        return pref.isSet();
+        return mAndroidVersionPreference.isSet();
     }
 
 }
