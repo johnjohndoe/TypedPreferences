@@ -17,7 +17,7 @@ apply plugin: 'org.robolectric'
 sourceCompatibility = JavaVersion.VERSION_1_6
 targetCompatibility = JavaVersion.VERSION_1_6
 
-version = "2.0.0"
+version = project.VERSION_NAME
 group = "info.metadude.android"
 archivesBaseName = "typed-preferences"
 
@@ -130,14 +130,14 @@ artifacts {
 }
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "21.1.2"
+    compileSdkVersion Integer.parseInt(project.COMPILE_SDK_VERSION)
+    buildToolsVersion project.BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 22
-        versionCode 6
-        versionName "2.0.0"
+        minSdkVersion Integer.parseInt(project.MIN_SDK_VERSION)
+        targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
+        versionCode Integer.parseInt(project.VERSION_CODE)
+        versionName project.VERSION_NAME
         buildConfigField "int", "ROBOLECTRIC_EMULATE_SDK_VERSION", "22"
     }
     buildTypes {
