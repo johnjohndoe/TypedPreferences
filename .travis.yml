@@ -7,7 +7,7 @@ android:
     - tools
     - platform-tools
     - build-tools-21.1.2
-    - android-20
+    - android-22
 
     # The libraries we can't get from Maven Central or similar
     - extra-android-support

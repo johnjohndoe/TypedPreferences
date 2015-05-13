@@ -130,12 +130,12 @@ artifacts {
 }
 
 android {
-    compileSdkVersion 20
+    compileSdkVersion 22
     buildToolsVersion "21.1.2"
 
     defaultConfig {
         minSdkVersion 9
-        targetSdkVersion 20
+        targetSdkVersion 22
         versionCode 6
         versionName "2.0.0"
     }
