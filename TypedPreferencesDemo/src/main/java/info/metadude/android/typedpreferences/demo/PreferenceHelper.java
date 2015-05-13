@@ -9,8 +9,9 @@ import info.metadude.android.typedpreferences.StringPreference;
 public class PreferenceHelper {
 
     protected final SharedPreferences mSharedPreferences;
+
     protected static final String PREF_KEY_ANDROID_VERSION =
-            "info.metadude.android.typedpreferences.demo.ANDROID_VERSION";
+            BuildConfig.APPLICATION_ID + ".ANDROID_VERSION";
 
     public PreferenceHelper(Context applicationContext) {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext);
