@@ -140,7 +140,7 @@ android {
         targetSdkVersion Integer.parseInt(project.TARGET_SDK_VERSION)
         versionCode Integer.parseInt(project.VERSION_CODE)
         versionName project.VERSION_NAME
-        buildConfigField "int", "ROBOLECTRIC_EMULATE_SDK_VERSION", "22"
+        buildConfigField "int", "ROBOLECTRIC_EMULATE_SDK_VERSION", "18"
     }
     buildTypes {
         release {
@@ -151,8 +151,8 @@ android {
 }
 
 dependencies {
-    androidTestCompile 'org.robolectric:robolectric:2.4'
-    androidTestCompile 'junit:junit:4.12'
+    testCompile 'org.robolectric:robolectric:2.4'
+    testCompile 'junit:junit:4.12'
 }
 
 
