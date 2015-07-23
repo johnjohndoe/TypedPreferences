@@ -17,5 +17,5 @@ allprojects {
 
 task wrapper(type: Wrapper) {
     description "Generates the Gradle wrapper."
-    gradleVersion = '2.2.1'
+    gradleVersion = '2.3'
 }
