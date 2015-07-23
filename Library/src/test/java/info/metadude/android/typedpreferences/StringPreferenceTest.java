@@ -1,12 +1,10 @@
 package info.metadude.android.typedpreferences;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
@@ -18,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 
 @Config(emulateSdk = BuildConfig.ROBOLECTRIC_EMULATE_SDK_VERSION)
 @RunWith(RobolectricTestRunner.class)
-public class StringPreferenceTest {
+public class StringPreferenceTest extends PreferenceTest {
 
     protected static final String PREFERENCES_KEY =
             BuildConfig.APPLICATION_ID + ".TEST_KEY_STRING";
@@ -28,8 +26,7 @@ public class StringPreferenceTest {
 
     @Before
     public void beforeEach() {
-        final SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(Robolectric.application);
+        final SharedPreferences sharedPreferences = getSharedPreferences();
         mPreference = new StringPreference(sharedPreferences, PREFERENCES_KEY, mDefaultValue);
     }
 
@@ -40,8 +37,7 @@ public class StringPreferenceTest {
 
     @Test
     public void expect_Preference_To_EqualDefaultValue() throws Exception {
-        final SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(Robolectric.application);
+        final SharedPreferences sharedPreferences = getSharedPreferences();
         StringPreference preference = new StringPreference(sharedPreferences, PREFERENCES_KEY);
         assertEquals(preference.get(), StringPreference.DEFAULT_VALUE_VALUE);
     }

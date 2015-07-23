@@ -1,12 +1,10 @@
 package info.metadude.android.typedpreferences;
 
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
@@ -18,7 +16,7 @@ import static org.junit.Assert.assertTrue;
 
 @Config(emulateSdk = BuildConfig.ROBOLECTRIC_EMULATE_SDK_VERSION)
 @RunWith(RobolectricTestRunner.class)
-public class FloatPreferenceTest {
+public class FloatPreferenceTest extends PreferenceTest {
 
     protected static final String PREFERENCES_KEY =
             BuildConfig.APPLICATION_ID + ".TEST_KEY_FLOAT";
@@ -29,8 +27,7 @@ public class FloatPreferenceTest {
 
     @Before
     public void beforeEach() {
-        final SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(Robolectric.application);
+        final SharedPreferences sharedPreferences = getSharedPreferences();
         mPreference = new FloatPreference(sharedPreferences, PREFERENCES_KEY, mDefaultValue);
     }
 
@@ -41,8 +38,7 @@ public class FloatPreferenceTest {
 
     @Test
     public void expect_Preference_To_EqualDefaultValue() throws Exception {
-        final SharedPreferences sharedPreferences = PreferenceManager
-                .getDefaultSharedPreferences(Robolectric.application);
+        final SharedPreferences sharedPreferences = getSharedPreferences();
         FloatPreference preference = new FloatPreference(sharedPreferences, PREFERENCES_KEY);
         assertEquals(preference.get(), FloatPreference.DEFAULT_VALUE_VALUE, mDelta);
     }
