@@ -16,4 +16,4 @@ android:
     - extra-android-m2repository
 
 script:
-  - ./gradlew clean test  # run tests
+  - ./gradlew clean assemble test -Dpre-dex=false --stacktrace # run tests
