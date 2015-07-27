@@ -17,3 +17,8 @@ android:
 
 script:
   - ./gradlew clean assemble test -Dpre-dex=false --stacktrace # run tests
+
+cache:
+  directories:
+    - $HOME/.gradle
+
