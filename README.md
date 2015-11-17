@@ -95,6 +95,7 @@ by [Jake Wharton][jake-wharton] in the [u2020 project][prefs-classes].
 
 ## Contributors
 
+* [Daniel Beland][daniel-beland]
 * [Marius Volkhart][marius-volkhart]
 * [Matthew Compton][matthew-compton]
 
@@ -129,6 +130,7 @@ by [Jake Wharton][jake-wharton] in the [u2020 project][prefs-classes].
 [jake-wharton]: https://github.com/JakeWharton
 [prefs-classes]: https://github.com/JakeWharton/u2020/commit/094d2146497997cd1f6779a9b5c3c7ce239b5435#diff-b28e0ef294012bd151c143531648c477
 [tobias-preuss]: https://github.com/johnjohndoe
+[daniel-beland]: https://github.com/dcendents
 [marius-volkhart]: https://github.com/MariusVolkhart
 [matthew-compton]: https://github.com/matthew-compton
 [typedpreferences-wiki]: https://github.com/johnjohndoe/TypedPreferences/wiki
