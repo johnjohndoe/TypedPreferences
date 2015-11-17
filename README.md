@@ -14,6 +14,7 @@ class for each native type:
 * [`FloatPreference`][float-pref] for a `float` value
 * [`IntPreference`][int-pref] for an `int` value
 * [`LongPreference`][long-pref] for a `long` value
+* [`ShortPreference`][short-pref] for a `short` value
 * [`StringPreference`][string-pref] for a `String` value
 
 Each class comes with two constructors - one of them allows to ommit
@@ -121,6 +122,7 @@ by [Jake Wharton][jake-wharton] in the [u2020 project][prefs-classes].
 [float-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/FloatPreference.java
 [int-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/IntPreference.java
 [long-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/LongPreference.java
+[short-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/ShortPreference.java
 [string-pref]: https://github.com/johnjohndoe/TypedPreferences/blob/master/Library/src/main/java/info/metadude/android/typedpreferences/StringPreference.java
 [maven-central]: http://search.maven.org/#search
 [jake-wharton]: https://github.com/JakeWharton
