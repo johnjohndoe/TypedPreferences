@@ -1,6 +1,8 @@
 package info.metadude.android.typedpreferences.demo;
 
 import android.app.Application;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public class TypedPreferencesDemoApplication extends Application {
 
@@ -8,7 +10,9 @@ public class TypedPreferencesDemoApplication extends Application {
 
     public PreferenceHelper getPreferenceHelper() {
         if (mPreferenceHelper == null) {
-            mPreferenceHelper = new PreferenceHelper(getApplicationContext());
+            SharedPreferences sharedPreferences =
+                    PreferenceManager.getDefaultSharedPreferences(this);
+            mPreferenceHelper = new PreferenceHelper(sharedPreferences);
         }
         return mPreferenceHelper;
     }
