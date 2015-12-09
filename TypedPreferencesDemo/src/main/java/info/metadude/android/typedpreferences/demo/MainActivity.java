@@ -1,61 +1,70 @@
 package info.metadude.android.typedpreferences.demo;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
+import android.text.Editable;
+import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends AppCompatActivity {
 
-    protected TextView mAndroidVersionTextView;
-    protected EditText mAndroidVersionEditText;
+    @Bind(R.id.storage_current_value)
+    TextView storageValueTextView;
+
+    @Bind(R.id.user_input)
+    EditText userInputEditText;
+
     protected PreferenceHelper mPreferenceHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mPreferenceHelper = getApp().getPreferenceHelper();
-        mAndroidVersionTextView = (TextView) findViewById(R.id.android_version_text_view);
-        mAndroidVersionEditText = (EditText) findViewById(R.id.android_version_edit_text);
-
-        final Button submitButton = (Button) findViewById(R.id.submit_button);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View view) {
-                final String androidVersion = mAndroidVersionEditText.getText().toString();
-                mAndroidVersionTextView.setText(androidVersion);
-            }
-        });
+        ButterKnife.bind(this);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setIcon(R.drawable.ic_launcher);
+        }
+        mPreferenceHelper = ((DemoApplication) getApplication())
+                .getPreferenceHelper();
     }
 
-    @Override protected void onResume() {
+    @Override
+    protected void onResume() {
         super.onResume();
-        restoreAndroidVersion();
+        restorePreferences();
     }
 
-    @Override protected void onPause() {
-        storeAndroidVersion();
+    @Override
+    protected void onPause() {
+        storePreferences();
         super.onPause();
     }
 
-    protected void restoreAndroidVersion() {
-        if (!mPreferenceHelper.storesAndroidVersion()) {
-            return;
+    @OnClick(R.id.submit_user_input)
+    public void onUserInputSubmit() {
+        Editable userInput = userInputEditText.getText();
+        if (!TextUtils.isEmpty(userInput)) {
+            String text = userInput.toString();
+            storageValueTextView.setText(text);
         }
-        String androidVersion = mPreferenceHelper.restoreAndroidVersion();
-        mAndroidVersionTextView.setText(androidVersion);
     }
 
-    protected void storeAndroidVersion() {
-        final String androidVersion = mAndroidVersionEditText.getText().toString();
-        mPreferenceHelper.storeAndroidVersion(androidVersion);
+    protected void restorePreferences() {
+        if (mPreferenceHelper.storesUserInput()) {
+            storageValueTextView.setText(mPreferenceHelper.restoreUserInput());
+        }
     }
 
-    protected TypedPreferencesDemoApplication getApp() {
-        return (TypedPreferencesDemoApplication) getApplication();
+    protected void storePreferences() {
+        mPreferenceHelper.storeUserInput(storageValueTextView.getText().toString());
     }
 
 }

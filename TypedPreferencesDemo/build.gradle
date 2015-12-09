@@ -18,7 +18,13 @@ android {
     }
 }
 
+ext {
+    supportLibVersion = '22.2.1'
+}
+
 dependencies {
     compile project(':Library')
-    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile "com.android.support:appcompat-v7:${supportLibVersion}"
+    compile "com.android.support:design:${supportLibVersion}"
+    compile "com.jakewharton:butterknife:7.0.1"
 }

@@ -1,36 +1,34 @@
 package info.metadude.android.typedpreferences.demo;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 
 import info.metadude.android.typedpreferences.StringPreference;
 
 public class PreferenceHelper {
 
-    protected final SharedPreferences mSharedPreferences;
+    protected static final String PREF_KEY_USER_INPUT =
+            BuildConfig.APPLICATION_ID + ".USER_INPUT";
 
-    protected static final String PREF_KEY_ANDROID_VERSION =
-            BuildConfig.APPLICATION_ID + ".ANDROID_VERSION";
+    protected final StringPreference mUserInputPreference;
 
-    protected final StringPreference mAndroidVersionPreference;
-
-    public PreferenceHelper(Context applicationContext) {
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext);
-        mAndroidVersionPreference = new StringPreference(
-                mSharedPreferences, PREF_KEY_ANDROID_VERSION);
+    public PreferenceHelper(@NonNull final SharedPreferences mSharedPreferences) {
+        mUserInputPreference = new StringPreference(
+                mSharedPreferences, PREF_KEY_USER_INPUT);
     }
 
-    public void storeAndroidVersion(final String androidVersion) {
-        mAndroidVersionPreference.set(androidVersion);
+    public void storeUserInput(@NonNull final String userInput) {
+        mUserInputPreference.set(userInput);
     }
 
-    public String restoreAndroidVersion() {
-        return mAndroidVersionPreference.get();
+    public
+    @NonNull
+    String restoreUserInput() {
+        return mUserInputPreference.get();
     }
 
-    public boolean storesAndroidVersion() {
-        return mAndroidVersionPreference.isSet();
+    public boolean storesUserInput() {
+        return mUserInputPreference.isSet();
     }
 
 }
