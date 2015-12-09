@@ -41,7 +41,7 @@ Add the library as a dependency to your `build.gradle` in case you use Gradle:
 
 ```groovy
 dependencies {
-    compile 'info.metadude.android:typed-preferences:2.0.0'
+    compile "info.metadude.android:typed-preferences:{$version}"
 }
 ```
 Or if you use Maven you should be looking for this:
@@ -50,7 +50,7 @@ Or if you use Maven you should be looking for this:
 <dependency>
     <groupId>info.metadude.android</groupId>
     <artifactId>typed-preferences</artifactId>
-    <version>2.0.0</version>
+    <version>{$version}</version>
 </dependency>
 ```
 
