@@ -3,9 +3,11 @@
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.11.3'
     }
 }
 
@@ -14,6 +16,8 @@ allprojects {
         mavenCentral()
     }
 }
+
+apply plugin: 'com.github.ben-manes.versions'
 
 task wrapper(type: Wrapper) {
     description "Generates the Gradle wrapper."
