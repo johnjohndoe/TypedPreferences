@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">TypedPreferences Demo</string>
-    <string name="android_version_default_text">Android version will be shown here &#8230;</string>
-    <string name="android_version_text_label">Stored: </string>
-    <string name="android_version_edit_text_hint">Enter Android version here</string>
-    <string name="submit_button_title">Submit</string>
+    <string name="app_name">TypedPreferences demo</string>
+    <string name="storage_nothing_yet">Nothing stored yet :(</string>
+    <string name="storage_headline">What has been stored?</string>
+    <string name="user_input_hint">Enter some text here</string>
+    <string name="submit_user_input">Submit</string>
 
 </resources>

@@ -7,26 +7,28 @@ import info.metadude.android.typedpreferences.StringPreference;
 
 public class PreferenceHelper {
 
-    protected static final String PREF_KEY_ANDROID_VERSION =
-            BuildConfig.APPLICATION_ID + ".ANDROID_VERSION";
+    protected static final String PREF_KEY_USER_INPUT =
+            BuildConfig.APPLICATION_ID + ".USER_INPUT";
 
-    protected final StringPreference mAndroidVersionPreference;
+    protected final StringPreference mUserInputPreference;
 
     public PreferenceHelper(@NonNull final SharedPreferences mSharedPreferences) {
-        mAndroidVersionPreference = new StringPreference(
-                mSharedPreferences, PREF_KEY_ANDROID_VERSION);
+        mUserInputPreference = new StringPreference(
+                mSharedPreferences, PREF_KEY_USER_INPUT);
     }
 
-    public void storeAndroidVersion(@NonNull final String androidVersion) {
-        mAndroidVersionPreference.set(androidVersion);
+    public void storeUserInput(@NonNull final String userInput) {
+        mUserInputPreference.set(userInput);
     }
 
-    public @NonNull String restoreAndroidVersion() {
-        return mAndroidVersionPreference.get();
+    public
+    @NonNull
+    String restoreUserInput() {
+        return mUserInputPreference.get();
     }
 
-    public boolean storesAndroidVersion() {
-        return mAndroidVersionPreference.isSet();
+    public boolean storesUserInput() {
+        return mUserInputPreference.isSet();
     }
 
 }

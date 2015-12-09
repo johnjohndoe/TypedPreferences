@@ -1,8 +1,39 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="colorButtonNormal">@color/accent</item>
+        <item name="colorControlHighlight">@color/primary</item>
+    </style>
+
+    <style name="UserInput">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:hint">@string/user_input_hint</item>
+    </style>
+
+    <style name="SubmitUserInput">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:text">@string/submit_user_input</item>
+        <item name="android:layout_gravity">bottom</item>
+    </style>
+
+    <style name="StorageHeadline" parent="@style/TextAppearance.AppCompat.Large">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">@string/storage_headline</item>
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="StorageValue" parent="@style/TextAppearance.AppCompat.Medium">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:text">@string/storage_nothing_yet</item>
     </style>
 
 </resources>

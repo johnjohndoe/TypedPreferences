@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-public class TypedPreferencesDemoApplication extends Application {
+public class DemoApplication extends Application {
 
     protected PreferenceHelper mPreferenceHelper;
 
