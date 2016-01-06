@@ -102,7 +102,7 @@ by [Jake Wharton][jake-wharton] in the [u2020 project][prefs-classes].
 
 ## License
 
-    Copyright 2015 Tobias Preuss
+    Copyright 2014-2016 Tobias Preuss
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
