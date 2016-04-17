@@ -5,10 +5,8 @@ import android.content.SharedPreferences;
 /**
  * A wrapper class for a boolean preference.
  */
-public class BooleanPreference {
+public class BooleanPreference extends BasePreference {
 
-    protected final SharedPreferences mPreferences;
-    protected final String mKey;
     protected final boolean mDefaultValue;
     public static final boolean DEFAULT_VALUE_VALUE = false;
 
@@ -25,8 +23,7 @@ public class BooleanPreference {
      * having the default value available.
      */
     public BooleanPreference(final SharedPreferences preferences, final String key, boolean defaultValue) {
-        mPreferences = preferences;
-        mKey = key;
+        super(preferences, key);
         mDefaultValue = defaultValue;
     }
 
@@ -39,25 +36,10 @@ public class BooleanPreference {
     }
 
     /**
-     * Returns {@code true} if some value is stored for
-     * this preference, otherwise {@code false}.
-     */
-    public boolean isSet() {
-        return mPreferences.contains(mKey);
-    }
-
-    /**
      * Stores the given {@code boolean} value asynchronously.
      */
     public void set(boolean value) {
         mPreferences.edit().putBoolean(mKey, value).apply();
-    }
-
-    /**
-     * Removes this preference setting asynchronously.
-     */
-    public void delete() {
-        mPreferences.edit().remove(mKey).apply();
     }
 
 }

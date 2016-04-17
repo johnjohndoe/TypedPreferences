@@ -5,10 +5,8 @@ import android.content.SharedPreferences;
 /**
  * A wrapper class for a int preference.
  */
-public class IntPreference {
+public class IntPreference extends BasePreference {
 
-    protected final SharedPreferences mPreferences;
-    protected final String mKey;
     protected final int mDefaultValue;
     public static final int DEFAULT_VALUE_VALUE = 0;
 
@@ -25,8 +23,7 @@ public class IntPreference {
      * having the default value available.
      */
     public IntPreference(final SharedPreferences preferences, final String key, int defaultValue) {
-        mPreferences = preferences;
-        mKey = key;
+        super(preferences, key);
         mDefaultValue = defaultValue;
     }
 
@@ -39,25 +36,10 @@ public class IntPreference {
     }
 
     /**
-     * Returns {@code true} if some value is stored for
-     * this preference, otherwise {@code false}.
-     */
-    public boolean isSet() {
-        return mPreferences.contains(mKey);
-    }
-
-    /**
      * Stores the given {@code int} value asynchronously.
      */
     public void set(final int value) {
         mPreferences.edit().putInt(mKey, value).apply();
-    }
-
-    /**
-     * Removes this preference setting asynchronously.
-     */
-    public void delete() {
-        mPreferences.edit().remove(mKey).apply();
     }
 
 }
