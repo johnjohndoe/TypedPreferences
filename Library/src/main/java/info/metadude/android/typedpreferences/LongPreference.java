@@ -5,10 +5,8 @@ import android.content.SharedPreferences;
 /**
  * A wrapper class for a long preference.
  */
-public class LongPreference {
+public class LongPreference extends BasePreference {
 
-    protected final SharedPreferences mPreferences;
-    protected final String mKey;
     protected final long mDefaultValue;
     public static final long DEFAULT_VALUE_VALUE = 0L;
 
@@ -25,8 +23,7 @@ public class LongPreference {
      * having the default value available.
      */
     public LongPreference(final SharedPreferences preferences, final String key, long defaultValue) {
-        mPreferences = preferences;
-        mKey = key;
+        super(preferences, key);
         mDefaultValue = defaultValue;
     }
 
@@ -39,25 +36,10 @@ public class LongPreference {
     }
 
     /**
-     * Returns {@code true} if some value is stored for
-     * this preference, otherwise {@code false}.
-     */
-    public boolean isSet() {
-        return mPreferences.contains(mKey);
-    }
-
-    /**
      * Stores the given {@code long} value asynchronously.
      */
     public void set(long value) {
         mPreferences.edit().putLong(mKey, value).apply();
-    }
-
-    /**
-     * Removes this preference setting asynchronously.
-     */
-    public void delete() {
-        mPreferences.edit().remove(mKey).apply();
     }
 
 }
