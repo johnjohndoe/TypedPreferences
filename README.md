@@ -82,6 +82,15 @@ If you use this library and you are happy with it please send a tweet to [@tbspr
 In case you do not like the library please do not hesitate to [open an issue][issues] and let me know what can be improved.
 
 
+## Which applications are using this library?
+
+* [android-rss-reader](https://github.com/nshmura/android-rss-reader)
+* [Hawkular Android Client](https://github.com/hawkular/hawkular-android-client)
+* [MuzeiHistory](https://github.com/tasomaniac/MuzeiHistory)
+* [Philips Hue Beacon Controller](https://github.com/alter-ego/philips-hue-beacon-controller)
+* [yacc](https://github.com/grodin/yacc)
+
+
 ## Reference
 
 This library is mainly inspired by the classes which have been published
