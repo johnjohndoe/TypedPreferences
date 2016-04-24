@@ -6,8 +6,8 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.11.3'
+        classpath 'com.android.tools.build:gradle:2.0.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.12.0'
     }
 }
 
@@ -21,5 +21,5 @@ apply plugin: 'com.github.ben-manes.versions'
 
 task wrapper(type: Wrapper) {
     description "Generates the Gradle wrapper."
-    gradleVersion = '2.9'
+    gradleVersion = '2.12'
 }
