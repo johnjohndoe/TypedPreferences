@@ -5,29 +5,28 @@ import android.support.annotation.NonNull;
 
 import info.metadude.android.typedpreferences.StringPreference;
 
-public class PreferenceHelper {
+class PreferenceHelper {
 
     private static final String PREF_KEY_USER_INPUT =
             BuildConfig.APPLICATION_ID + ".USER_INPUT";
 
     private final StringPreference mUserInputPreference;
 
-    public PreferenceHelper(@NonNull final SharedPreferences mSharedPreferences) {
+    PreferenceHelper(@NonNull final SharedPreferences mSharedPreferences) {
         mUserInputPreference = new StringPreference(
                 mSharedPreferences, PREF_KEY_USER_INPUT);
     }
 
-    public void storeUserInput(@NonNull final String userInput) {
+    void storeUserInput(@NonNull final String userInput) {
         mUserInputPreference.set(userInput);
     }
 
-    public
     @NonNull
     String restoreUserInput() {
         return mUserInputPreference.get();
     }
 
-    public boolean storesUserInput() {
+    boolean storesUserInput() {
         return mUserInputPreference.isSet();
     }
 
