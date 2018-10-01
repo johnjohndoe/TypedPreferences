@@ -8,19 +8,19 @@ import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.storage_current_value)
+    @BindView(R.id.storage_current_value)
     TextView storageValueTextView;
 
-    @Bind(R.id.user_input)
+    @BindView(R.id.user_input)
     EditText userInputEditText;
 
-    protected PreferenceHelper mPreferenceHelper;
+    private PreferenceHelper mPreferenceHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    protected void restorePreferences() {
+    private void restorePreferences() {
         if (mPreferenceHelper.storesUserInput()) {
             storageValueTextView.setText(mPreferenceHelper.restoreUserInput());
         }
     }
 
-    protected void storePreferences() {
+    private void storePreferences() {
         mPreferenceHelper.storeUserInput(storageValueTextView.getText().toString());
     }
 
