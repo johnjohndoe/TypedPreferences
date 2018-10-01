@@ -6,7 +6,7 @@ import android.preference.PreferenceManager;
 
 public class DemoApplication extends Application {
 
-    protected PreferenceHelper mPreferenceHelper;
+    private PreferenceHelper mPreferenceHelper;
 
     public PreferenceHelper getPreferenceHelper() {
         if (mPreferenceHelper == null) {

@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.user_input)
     EditText userInputEditText;
 
-    protected PreferenceHelper mPreferenceHelper;
+    private PreferenceHelper mPreferenceHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    protected void restorePreferences() {
+    private void restorePreferences() {
         if (mPreferenceHelper.storesUserInput()) {
             storageValueTextView.setText(mPreferenceHelper.restoreUserInput());
         }
     }
 
-    protected void storePreferences() {
+    private void storePreferences() {
         mPreferenceHelper.storeUserInput(storageValueTextView.getText().toString());
     }
 

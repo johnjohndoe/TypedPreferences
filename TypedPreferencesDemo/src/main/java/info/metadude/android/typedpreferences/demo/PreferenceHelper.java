@@ -7,10 +7,10 @@ import info.metadude.android.typedpreferences.StringPreference;
 
 public class PreferenceHelper {
 
-    protected static final String PREF_KEY_USER_INPUT =
+    private static final String PREF_KEY_USER_INPUT =
             BuildConfig.APPLICATION_ID + ".USER_INPUT";
 
-    protected final StringPreference mUserInputPreference;
+    private final StringPreference mUserInputPreference;
 
     public PreferenceHelper(@NonNull final SharedPreferences mSharedPreferences) {
         mUserInputPreference = new StringPreference(
